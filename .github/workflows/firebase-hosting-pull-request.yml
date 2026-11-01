@@ -1,0 +1,29 @@
+# PR을 올리면 미리보기 주소에 배포하고 PR에 링크를 댓글로 남김 (7일 후 만료)
+name: Deploy to Firebase Hosting on PR
+
+on: pull_request
+
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+
+jobs:
+  build_and_preview:
+    # 포크에서 올라온 PR에는 Secret이 없으므로 같은 저장소의 PR만 실행
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci && npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_DEV_GRAMMAR_SEARCH_TOOL }}
+          projectId: dev-grammar-search-tool
