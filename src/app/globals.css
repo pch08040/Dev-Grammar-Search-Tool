@@ -10,6 +10,8 @@
   --flutter-soft: #e6f1fb;
   --spring: #4e9a2b;
   --spring-soft: #ebf5e4;
+  --infra: #b35c00;
+  --infra-soft: #fbf0e4;
   --accent: #3b5bdb;
   --mark: #fff3a3;
   --code-bg: #f6f8fa;
@@ -40,6 +42,8 @@
     --flutter-soft: #13283b;
     --spring: #8bd25f;
     --spring-soft: #1a2b14;
+    --infra: #ffa657;
+    --infra-soft: #2e1f10;
     --accent: #7c95ff;
     --mark: #5a4b00;
     --code-bg: #0d1117;
@@ -67,6 +71,8 @@
   --flutter-soft: #13283b;
   --spring: #8bd25f;
   --spring-soft: #1a2b14;
+  --infra: #ffa657;
+  --infra-soft: #2e1f10;
   --accent: #7c95ff;
   --mark: #5a4b00;
   --code-bg: #0d1117;
@@ -138,6 +144,7 @@ p code, li code, td code {
 .stack-switch button[aria-pressed='true'] { background: var(--surface); color: var(--text); box-shadow: var(--shadow); }
 .stack-switch button[data-stack='flutter'][aria-pressed='true'] { color: var(--flutter); }
 .stack-switch button[data-stack='spring'][aria-pressed='true'] { color: var(--spring); }
+.stack-switch button[data-stack='infra'][aria-pressed='true'] { color: var(--infra); }
 .icon-btn {
   border: 1px solid var(--border); background: var(--surface); width: 36px; height: 36px; border-radius: 9px;
   display: grid; place-items: center; color: var(--text-2); flex: none;
@@ -163,6 +170,7 @@ p code, li code, td code {
 .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 8px; }
 .dot.flutter { background: var(--flutter); }
 .dot.spring { background: var(--spring); }
+.dot.infra { background: var(--infra); }
 
 .list { border-right: 1px solid var(--border); overflow-y: auto; }
 .list-head {
@@ -187,6 +195,7 @@ p code, li code, td code {
 .badge { font-size: 10.5px; font-weight: 600; padding: 1px 7px; border-radius: 999px; white-space: nowrap; }
 .badge.flutter { color: var(--flutter); background: var(--flutter-soft); }
 .badge.spring { color: var(--spring); background: var(--spring-soft); }
+.badge.infra { color: var(--infra); background: var(--infra-soft); }
 .badge.kind { color: var(--text-2); background: var(--surface-2); }
 .star { margin-left: auto; color: #e3b100; font-size: 12px; }
 mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px; }
@@ -260,8 +269,9 @@ pre.code { margin: 0; padding: 14px 16px; overflow-x: auto; font-size: 13px; lin
   .top { flex-wrap: wrap; height: auto; padding: 10px 16px; gap: 10px; }
   .search { order: 3; flex-basis: 100%; max-width: none; }
   .search kbd { display: none; }
-  .stack-switch { margin-left: auto; }
-  .stack-switch button { padding: 5px 9px; font-size: 12px; }
+  .stack-switch { order: 4; flex-basis: 100%; overflow-x: auto; }
+  .stack-switch button { padding: 5px 9px; font-size: 12px; flex: none; }
+  .icon-btn { margin-left: auto; }
   .layout { display: block; height: auto; }
   .side { border-right: 0; border-bottom: 1px solid var(--border); padding: 8px 16px; display: flex; gap: 6px; overflow-x: auto; white-space: nowrap; }
   .side h3 { display: none; }

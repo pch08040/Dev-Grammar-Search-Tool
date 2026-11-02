@@ -1,6 +1,6 @@
 # DevRef
 
-Flutter · Dart, Spring · Java에서 자주 쓰는 위젯, 함수, 문법을 빠르게 검색하는 레퍼런스예요.
+Flutter · Dart, Spring · Java, 터미널 · 인프라에서 자주 쓰는 위젯, 함수, 문법, 명령어를 빠르게 검색하는 레퍼런스예요.
 Next.js 정적 내보내기(`output: 'export'`)로 빌드해서 Firebase Hosting에 올려요.
 
 ## 실행
@@ -14,7 +14,7 @@ npm run preview    # out/ 폴더를 로컬에서 확인
 
 ## 항목 추가
 
-1. `content/_template.md`를 `content/flutter/` 또는 `content/spring/`에 복사해요.
+1. `content/_template.md`를 `content/flutter/`, `content/spring/`, `content/infra/` 중 한 곳에 복사해요.
 2. 파일 이름이 URL이 돼요. `content/flutter/listview-builder.md` → `/flutter/listview-builder`
 3. `npm run dev` 화면에서 바로 확인해요.
 

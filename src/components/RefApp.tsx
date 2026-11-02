@@ -1,7 +1,7 @@
 'use client';
 
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { CATEGORIES, STACKS, STACK_LABEL } from '@/lib/categories';
+import { CATEGORIES, STACKS, STACK_LABEL, STACK_SHORT } from '@/lib/categories';
 import type { Entry, Stack } from '@/lib/types';
 
 type StackFilter = 'all' | Stack;
@@ -301,7 +301,7 @@ export default function RefApp({ initialEntry }: { initialEntry?: Entry }) {
               onClick={() => select(e.key)}
             >
               <div className="item-top">
-                <span className={`badge ${e.stack}`}>{e.stack === 'flutter' ? 'Flutter' : 'Spring'}</span>
+                <span className={`badge ${e.stack}`}>{STACK_SHORT[e.stack]}</span>
                 <span className="badge kind">{e.kind}</span>
                 {favs.has(e.key) && <span className="star">★</span>}
               </div>
@@ -365,7 +365,7 @@ export default function RefApp({ initialEntry }: { initialEntry?: Entry }) {
                         <tr key={p.name}>
                           <td>{p.name}</td>
                           <td>
-                            <code>{p.type}</code>
+                            {p.type.includes('`') ? <InlineCode text={p.type} /> : <code>{p.type}</code>}
                           </td>
                           <td>
                             <InlineCode text={p.desc} />

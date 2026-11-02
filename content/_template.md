@@ -1,5 +1,5 @@
 ---
-# 이 파일을 content/flutter/ 또는 content/spring/ 에 복사해서 쓰세요.
+# 이 파일을 content/flutter/, content/spring/, content/infra/ 에 복사해서 쓰세요.
 # 파일 이름이 URL이 됩니다. 예: content/flutter/listview-builder.md → /flutter/listview-builder
 # 밑줄(_)로 시작하는 파일은 빌드에서 제외됩니다.
 
@@ -23,7 +23,7 @@ doc: https://api.flutter.dev/       # 필수. 공식 문서 URL
 ## 사용 예시
 
 ```dart
-// 필수. 코드 블록 하나. 언어: dart, java, yaml, groovy, kotlin, json, sql, xml, properties, bash
+// 필수. 코드 블록 하나. 언어: dart, java, yaml, groovy, kotlin, json, sql, xml, properties, bash, nginx, ini, dockerfile
 ```
 
 ## 주의할 점

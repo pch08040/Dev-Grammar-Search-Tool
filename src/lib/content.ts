@@ -4,6 +4,9 @@ import matter from 'gray-matter';
 import hljs from 'highlight.js/lib/core';
 import bash from 'highlight.js/lib/languages/bash';
 import dart from 'highlight.js/lib/languages/dart';
+import dockerfile from 'highlight.js/lib/languages/dockerfile';
+import ini from 'highlight.js/lib/languages/ini';
+import nginx from 'highlight.js/lib/languages/nginx';
 import groovy from 'highlight.js/lib/languages/groovy';
 import java from 'highlight.js/lib/languages/java';
 import json from 'highlight.js/lib/languages/json';
@@ -17,6 +20,9 @@ import type { Entry, Param, Stack } from './types';
 
 hljs.registerLanguage('bash', bash);
 hljs.registerLanguage('dart', dart);
+hljs.registerLanguage('dockerfile', dockerfile);
+hljs.registerLanguage('ini', ini);
+hljs.registerLanguage('nginx', nginx);
 hljs.registerLanguage('groovy', groovy);
 hljs.registerLanguage('java', java);
 hljs.registerLanguage('json', json);
@@ -123,7 +129,8 @@ function parseBody(content: string, rel: string) {
           .trim()
           .slice(1, -1)
           .split(/(?<!\\)\|/)
-          .map((c) => c.trim().replace(/\\\|/g, '|').replace(/^`(.*)`$/, '$1'));
+          // 셀 전체가 백틱 한 쌍일 때만 벗김 (`a` · `b`처럼 여러 쌍이면 그대로 둠)
+          .map((c) => c.trim().replace(/\\\|/g, '|').replace(/^`([^`]*)`$/, '$1'));
         if (cells.length !== 3) fail(rel, `"## ${title}" 표는 이름 | 타입 | 설명 3칸이어야 합니다: ${line}`);
         return { name: cells[0], type: cells[1], desc: cells[2] };
       });

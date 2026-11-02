@@ -1,4 +1,4 @@
-export type Stack = 'flutter' | 'spring';
+export type Stack = 'flutter' | 'spring' | 'infra';
 
 export interface Param {
   name: string;
